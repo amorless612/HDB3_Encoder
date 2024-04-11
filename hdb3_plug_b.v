@@ -9,6 +9,8 @@ output [1:0] data_plug_b
 
 reg count_1; 
 reg [1:0] count_v; 
+reg [1:0] data[3:0];
+reg [1:0] i;
 	
 always@(posedge clk or negedge rst_n) begin
   if (!rst_n) begin
@@ -30,13 +32,14 @@ always@(posedge clk or negedge rst_n) begin
 	end
 end
 
-reg [1:0] data[3:0];
-reg [1:0] i;
-
 always@(posedge clk or negedge rst_n) begin
 		if (!rst_n) begin
 		//	for (i=0; i<3; i=i+1)
 		//		data[i] <= 2'b0;
+			data[3] <= 2'b0;
+			data[2] <= 2'b0;
+			data[1] <= 2'b0;
+			data[0] <= 2'b0;
 		end
 		else begin
 			data[3] <= data[2];

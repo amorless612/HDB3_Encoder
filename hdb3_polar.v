@@ -23,8 +23,8 @@ always @ (posedge clk or negedge rst_n) begin
 				polarout <= 2'b01;
 			else begin
 				polarout <= 2'b10;  
-			  even <= ~even;
         end
+			  even <= ~even;
 		  end
 
 		else if(data_plug_b == 2'b11) begin

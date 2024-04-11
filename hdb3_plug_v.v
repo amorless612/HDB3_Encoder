@@ -4,6 +4,7 @@ module hdb3_plug_v(
   input rst_n,
   input clk,
   input data_in,
+  input en,
   output [1:0] data_plug_v
 );
 
@@ -12,6 +13,10 @@ reg [1:0] count;
 	
 always@(posedge clk or negedge rst_n) begin
 	if (!rst_n) begin
+			count <= 2'd0;
+			data_plug_v <= 2'b00;
+		  end
+	else if (!en) begin
 			count <= 2'd0;
 			data_plug_v <= 2'b00;
 		  end
